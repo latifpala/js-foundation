@@ -35,3 +35,24 @@ const myFunction = function(){
 console.log(typeof anotherId);
 
 // https://262.ecma-international.org/5.1/#sec-11.4.3
+
+
+// Stack (Primitive) and Heap memory (Non Primitive)
+
+let myName = "Abdul Latif"
+let mySirName = myName
+mySirName = "Pala"
+console.log(myName);
+console.log(mySirName); // value remains "Pala" as its in stack
+
+let userOne = {
+    userName : "latif",
+    password : "123456"
+}
+
+let userTwo = userOne
+
+userTwo.userName = 'Abdul Latif';
+console.log(userOne.userName) // both values changed as its heap
+
+
