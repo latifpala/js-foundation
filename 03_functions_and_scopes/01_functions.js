@@ -1,65 +1,66 @@
+/* 
+1. Write a function named `makeTea` that takes one parameter, `typeOfTea`, and returns a string like `"Making green tea"` when called with `"green tea"`. 
+Store the result in a variable named `teaOrder`.
+*/
 
-function sayMyName(){
-    console.log("L");
-    console.log("A");
-    console.log("T");
-    console.log("I");
-    console.log("F");
+function makeTea(typeOfTea) {
+  return `Making ${typeOfTea}`;
+  console.log(test);
+}
+let teaOrder = makeTea("lemon tea");
+// console.log(teaOrder);
+
+/* 
+2. Create a function named `orderTea` that takes one parameter, `teaType`. Inside this function, create another function named `confirmOrder` that returns a message like `"Order confirmed for chai"`. 
+Call `confirmOrder` from within `orderTea` and return the result.
+*/
+
+function orderTea(teaType) {
+  function confirmOrder() {
+    return `Order confirmed for ${teaType}`;
+  }
+  return confirmOrder();
 }
 
-// sayMyName()
+let orderConfirmation = orderTea("coffee");
+console.log(orderConfirmation);
 
-// function addTwoNumbers(number1, number2){
+/* 
+3. Write an arrow function named `calculateTotal` that takes two parameters: `price` and `quantity`. The function should return the total cost by multiplying the `price` and `quantity`. 
+Store the result in a variable named `totalCost`.
+*/
 
-//     console.log(number1 + number2);
-// }
+const calculateTotal = (price, quantity) => price * quantity;
 
-function addTwoNumbers(number1, number2){
+let totalCost = calculateTotal(499 * 100);
 
-    // let result = number1 + number2
-    // return result
-    return number1 + number2
+/* 
+4. Write a function named `processTeaOrder` that takes another function, `makeTea`, as a parameter and calls it with the argument `"earl grey"`. 
+Return the result of calling `makeTea`.
+*/
+function makeTea(typeOfTea) {
+  return `maketea: ${typeOfTea}`;
 }
 
-const result = addTwoNumbers(3, 5)
-
-// console.log("Result: ", result);
-
-
-function loginUserMessage(username = "sam"){
-    if(!username){
-        console.log("PLease enter a username");
-        return
-    }
-    return `${username} just logged in`
+function processTeaOrder(teaFunction) {
+  return teaFunction("earl grey");
 }
 
-function calculateCartPrice(val1, val2, ...num1){
-    return num1
+let order = processTeaOrder(makeTea);
+// console.log(order);
+
+/* 
+5. Write a function named `createTeaMaker` that returns another function. The returned function should take one parameter, `teaType`, and return a message like `"Making green tea"`. 
+Store the returned function in a variable named `teaMaker` and call it with `"green tea"`.
+*/
+
+function createTeaMaker(name) {
+    let score = 100
+  return function (teaType) {
+    return `Making ${teaType} ${name} ${score}`;
+  };
 }
 
-// console.log(calculateCartPrice(200, 400, 500, 2000))
-
-const user = {
-    username: "latif",
-    prices: 199
-}
-
-function handleObject(anyobject){
-    console.log(`Username is ${anyobject.username} and price is ${anyobject.price}`);
-}
-
-// handleObject(user)
-handleObject({
-    username: "sam",
-    price: 399
-})
-
-const myNewArray = [200, 400, 100, 600]
-
-function returnSecondValue(getArray){
-    return getArray[1]
-}
-
-// console.log(returnSecondValue(myNewArray));
-console.log(returnSecondValue([200, 400, 500, 1000]));
+let teaMaker = createTeaMaker("hitesh");
+let result = teaMaker("green tea");
+console.log(result);
